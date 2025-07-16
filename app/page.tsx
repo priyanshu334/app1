@@ -72,7 +72,6 @@ const CountdownPage = () => {
     }
   };
 
-  // Generate unique invite link (in real app, this would come from your backend)
   const generateInviteLink = () => {
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://vikaasgarh.com';
     const inviteCode = Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -126,24 +125,18 @@ const CountdownPage = () => {
   ];
 
   const PrivacyPolicyModal = () => (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={() => setShowPrivacyModal(false)}
       />
-      
-      {/* Modal */}
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden">
-        {/* Modal glow effect */}
+      <div className="relative w-full max-w-md sm:max-w-2xl lg:max-w-4xl max-h-screen overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#00b0ff]/20 via-[#00ffff]/30 to-[#00b0ff]/20 rounded-3xl blur-2xl transform scale-110"></div>
-        
         <div className="relative bg-black/95 border-2 border-[#00b0ff]/50 rounded-2xl shadow-2xl shadow-[#00b0ff]/20 backdrop-blur-sm overflow-hidden">
-          {/* Header */}
-          <div className="relative border-b border-[#00b0ff]/30 p-6">
+          <div className="relative border-b border-[#00b0ff]/30 p-4 sm:p-6">
             <div className="absolute inset-0 bg-[#00b0ff]/10 blur-lg"></div>
             <div className="relative flex items-center justify-between">
-              <h2 className="text-3xl font-bold text-white font-['Orbitron']">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-['Orbitron']">
                 Privacy Policy
               </h2>
               <button
@@ -151,115 +144,28 @@ const CountdownPage = () => {
                 className="relative group"
               >
                 <div className="absolute inset-0 bg-[#00b0ff]/20 rounded-full blur-md group-hover:bg-[#00b0ff]/30 transition-all duration-300"></div>
-                <div className="relative w-10 h-10 rounded-full border border-[#00b0ff]/50 bg-black/70 flex items-center justify-center text-white hover:border-[#00b0ff] hover:bg-[#00b0ff]/10 transition-all duration-300">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#00b0ff]/50 bg-black/70 flex items-center justify-center text-white hover:border-[#00b0ff] hover:bg-[#00b0ff]/10 transition-all duration-300">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </div>
               </button>
             </div>
           </div>
-
-          {/* Content */}
-          <div className="p-6 overflow-y-auto max-h-[60vh] custom-scrollbar">
+          <div className="p-4 sm:p-6 overflow-y-auto max-h-[70vh] sm:max-h-[85vh] custom-scrollbar text-sm sm:text-base">
             <div className="space-y-6 text-blue-100">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-md"></div>
-                <div className="relative bg-[#00b0ff]/10 border border-[#00b0ff]/20 rounded-lg p-4">
-                  <p className="text-sm text-blue-300 mb-2">Last updated: July 14, 2025</p>
-                  <p className="text-blue-200">
-                    This Privacy Policy describes how VikaasGarh ("we," "our," or "us") collects, uses, and protects your information when you use our website and services.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">1. Information We Collect</h3>
-                    <p className="text-blue-200 mb-2">We collect information you provide directly to us, including:</p>
-                    <ul className="list-disc list-inside text-blue-300 space-y-1 ml-4">
-                      <li>Email addresses when you subscribe to our waitlist</li>
-                      <li>Contact information when you reach out to us</li>
-                      <li>Usage data and analytics to improve our services</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">2. How We Use Your Information</h3>
-                    <p className="text-blue-200 mb-2">We use the information we collect to:</p>
-                    <ul className="list-disc list-inside text-blue-300 space-y-1 ml-4">
-                      <li>Send you updates about our platform launch</li>
-                      <li>Respond to your inquiries and provide support</li>
-                      <li>Improve our website and services</li>
-                      <li>Comply with legal obligations</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">3. Information Sharing</h3>
-                    <p className="text-blue-200">
-                      We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy or as required by law.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">4. Data Security</h3>
-                    <p className="text-blue-200">
-                      We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">5. Your Rights</h3>
-                    <p className="text-blue-200 mb-2">You have the right to:</p>
-                    <ul className="list-disc list-inside text-blue-300 space-y-1 ml-4">
-                      <li>Access your personal information</li>
-                      <li>Request correction of inaccurate data</li>
-                      <li>Request deletion of your data</li>
-                      <li>Unsubscribe from our communications</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-lg blur-sm"></div>
-                  <div className="relative bg-black/50 border border-[#00b0ff]/20 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold text-[#00b0ff] mb-3 font-['Orbitron']">6. Contact Us</h3>
-                    <p className="text-blue-200">
-                      If you have any questions about this Privacy Policy, please contact us at{' '}
-                      <a href="mailto:privacy@vikaasgarh.com" className="text-[#00b0ff] hover:text-[#33ccff] underline">
-                        privacy@vikaasgarh.com
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* Privacy policy content would go here */}
+              <p>Your privacy policy content...</p>
             </div>
           </div>
-
-          {/* Footer */}
-          <div className="relative border-t border-[#00b0ff]/30 p-6">
+          <div className="relative border-t border-[#00b0ff]/30 p-4 sm:p-6">
             <div className="absolute inset-0 bg-[#00b0ff]/5 blur-lg"></div>
             <div className="relative flex justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00b0ff] to-[#0066ff] rounded-full blur-md opacity-50"></div>
                 <button
                   onClick={() => setShowPrivacyModal(false)}
-                  className="relative px-8 py-3 bg-gradient-to-r from-[#00b0ff] to-[#0066ff] text-black font-semibold rounded-full shadow-lg shadow-[#00b0ff]/30 hover:scale-105 transition-all duration-300 hover:from-[#339dff] hover:to-[#0051cc] hover:shadow-[#00b0ff]/50"
+                  className="relative px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-[#00b0ff] to-[#0066ff] text-black font-semibold rounded-full shadow-lg shadow-[#00b0ff]/30 hover:scale-105 transition-all duration-300 hover:from-[#339dff] hover:to-[#0051cc] hover:shadow-[#00b0ff]/50"
                 >
                   Got it, Thanks!
                 </button>
@@ -271,21 +177,17 @@ const CountdownPage = () => {
     </div>
   );
 
-const Colon = () => (
-  <div className="relative flex items-center justify-center mx-1 sm:mx-3">
-    <div className="absolute top-1/2 -translate-y-1/2 flex flex-col items-center gap-6">
-      {/* glow background dots */}
-      <span className="w-3 h-3 rounded-full bg-[#00b0ff]/30 blur-sm"></span>
-      <span className="w-3 h-3 rounded-full bg-[#00b0ff]/30 blur-sm"></span>
-
-      {/* solid foreground dots */}
-      <span className="absolute top-0 w-2.5 h-2.5 rounded-full bg-[#00b0ff]"></span>
-      <span className="absolute bottom-0 w-2.5 h-2.5 rounded-full bg-[#00b0ff]"></span>
+  const Colon = () => (
+    <div className="relative flex items-center justify-center mx-1 sm:mx-3">
+      <div className="absolute top-1/2 -translate-y-1/2 flex flex-col items-center gap-5 sm:gap-6">
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#00b0ff]/30 blur-sm"></span>
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#00b0ff]/30 blur-sm"></span>
+        <span className="absolute top-0 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#00b0ff]"></span>
+        <span className="absolute bottom-0 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#00b0ff]"></span>
+      </div>
+      <div className="w-8 sm:w-12 md:w-16" />
     </div>
-    {/* Empty div to maintain space in layout */}
-    <div className="w-16" />
-  </div>
-);
+  );
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden font-sans">
@@ -319,13 +221,13 @@ const Colon = () => (
       </header>
 
       {/* MAIN */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-[80vh]">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-4">
         {/* Hero Text */}
-        <div className="mb-16 text-center space-y-6">
+        <div className="mb-8 sm:mb-16 text-center space-y-4 sm:space-y-6">
           {/* Tagline */}
-            <div className="relative max-w-4xl mx-auto px-4">
+          <div className="relative max-w-4xl mx-auto">
             <div className="absolute inset-0 bg-[#00b0ff]/5 rounded-2xl blur-lg"></div>
-            <p className="relative text-lg font-light tracking-wide text-blue-200 leading-relaxed">
+            <p className="relative text-base sm:text-lg font-light tracking-wide text-blue-200 leading-relaxed">
               We're developing a thoughtfully designed platform that brings together an institute, an incubator, an accelerator, and a network forum, especially for the youth of Chhattisgarh.
             </p>
           </div>
@@ -333,7 +235,7 @@ const Colon = () => (
           {/* Hashtag */}
           <div className="relative">
             <div className="absolute inset-0 bg-[#00b0ff]/10 rounded-lg blur-md"></div>
-            <p className="relative text-xl font-bold tracking-wide text-[#00b0ff] drop-shadow-lg font-['Orbitron']">
+            <p className="relative text-lg sm:text-xl font-bold tracking-wide text-[#00b0ff] drop-shadow-lg font-['Orbitron']">
               #MereSathVikaasgarh
             </p>
           </div>
@@ -355,21 +257,19 @@ const Colon = () => (
                 </svg>
               </div>
             </div>
-            <p className="text-2xl font-light tracking-wide text-[#00b0ff] drop-shadow-lg font-['Orbitron']">
+            <p className="text-xl sm:text-2xl font-light tracking-wide text-[#00b0ff] drop-shadow-lg font-['Orbitron']">
               Many people have already joined the wait list
             </p>
           </div>
-
-         
         </div>
 
         {/* COUNTDOWN with Neon Glow */}
-        <div className="relative mb-16">
+        <div className="relative mb-8 sm:mb-16 w-full max-w-xs sm:max-w-full">
           {/* Neon glow background */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#00b0ff]/20 via-[#00ffff]/30 to-[#00b0ff]/20 rounded-3xl blur-2xl transform scale-110"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00b0ff]/10 to-transparent rounded-3xl blur-xl"></div>
           
-          <div className="relative flex items-center justify-center space-x-8 p-8">
+          <div className="relative flex items-center justify-center flex-wrap gap-2 sm:gap-0 p-4 sm:p-8">
             {(['days', 'hours', 'minutes', 'seconds'] as const).map((k, i) => (
               <React.Fragment key={k}>
                 <div className="text-center">
@@ -377,32 +277,32 @@ const Colon = () => (
                     {/* Outer glow */}
                     <div className="absolute inset-0 bg-[#00b0ff]/30 rounded-8xl blur-sm transform scale-90"></div>
                   
-                    <div className="relative rounded-2xl border-2 border-[#00b0ff]/50 bg-white/95 p-6 shadow-2xl backdrop-blur-sm">
+                    <div className="relative rounded-xl sm:rounded-2xl border-2 border-[#00b0ff]/50 bg-white/95 p-4 sm:p-6 shadow-2xl backdrop-blur-sm">
                       {/* Notebook lines effect */}
                       <div className="absolute inset-0 opacity-10 pointer-events-none">
                         <div className="h-full w-full bg-gradient-to-b from-transparent via-blue-200 to-transparent bg-[length:100%_20px] bg-repeat-y"></div>
                       </div>
                 
-                      <span className="relative text-8xl font-light text-black drop-shadow-sm font-['Orbitron']">
+                      <span className="relative text-5xl sm:text-8xl font-light text-black drop-shadow-sm font-['Orbitron']">
                         {String(timeLeft[k]).padStart(2, '0')}
                       </span>
                     </div>
                   </div>
-                  <span className="mt-4 block text-lg font-light text-blue-300 capitalize">
+                  <span className="mt-2 sm:mt-4 block text-sm sm:text-lg font-light text-blue-300 capitalize">
                     {k}
                   </span>
                 </div>
-                    {i < 3 && <Colon />}
+                {i < 3 && <Colon />}
               </React.Fragment>
             ))}
           </div>
         </div>
 
         {/* EMAIL SIGNUP */}
-        <section className="space-y-8 w-full max-w-xl">
+        <section className="space-y-6 sm:space-y-8 w-full max-w-xs sm:max-w-xl px-4">
           <div className="relative">
             <div className="absolute inset-0 bg-[#00b0ff]/10 rounded-xl blur-lg"></div>
-            <h2 className="relative text-center text-5xl font-bold leading-tight text-white font-['Orbitron']">
+            <h2 className="relative text-center text-3xl sm:text-5xl font-bold leading-tight text-white font-['Orbitron']">
               Get Notified<br />
               When we Launch
             </h2>
@@ -410,7 +310,7 @@ const Colon = () => (
 
           <form
             onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
-            className="flex flex-col gap-4 lg:flex-row"
+            className="flex flex-col sm:flex-row gap-4"
           >
             <div className="relative flex-1">
               <div className="absolute inset-0 bg-[#00b0ff]/20 rounded-full blur-md"></div>
@@ -422,7 +322,7 @@ const Colon = () => (
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
-                className="relative w-full rounded-full border border-[#00b0ff]/30 bg-gray-800/70 px-8 py-4 text-white placeholder-gray-400 shadow-lg shadow-[#00b0ff]/10 focus:border-[#00b0ff] focus:outline-none focus:ring-2 focus:ring-[#00b0ff] focus:shadow-[#00b0ff]/30 disabled:opacity-50"
+                className="relative w-full rounded-full border border-[#00b0ff]/30 bg-gray-800/70 px-6 py-3 sm:py-4 text-white placeholder-gray-400 shadow-lg shadow-[#00b0ff]/10 focus:border-[#00b0ff] focus:outline-none focus:ring-2 focus:ring-[#00b0ff] focus:shadow-[#00b0ff]/30 disabled:opacity-50"
               />
             </div>
             <div className="relative">
@@ -430,7 +330,7 @@ const Colon = () => (
               <button
                 type="submit"
                 disabled={isLoading}
-                className="relative whitespace-nowrap rounded-full bg-gradient-to-r from-[#00b0ff] to-[#0066ff] px-8 py-4 font-semibold text-black shadow-lg shadow-[#00b0ff]/30 transition-all duration-300 hover:scale-105 hover:from-[#339dff] hover:to-[#0051cc] hover:shadow-[#00b0ff]/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="relative whitespace-nowrap rounded-full bg-gradient-to-r from-[#00b0ff] to-[#0066ff] px-6 py-3 sm:py-4 font-semibold text-black shadow-lg shadow-[#00b0ff]/30 transition-all duration-300 hover:scale-105 hover:from-[#339dff] hover:to-[#0051cc] hover:shadow-[#00b0ff]/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {isLoading ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Notify Me'}
               </button>
@@ -452,13 +352,13 @@ const Colon = () => (
           </p>
 
           {/* Enhanced Invite Box with Social Sharing */}
-          <div className="relative mt-8">
+          <div className="relative mt-6 sm:mt-8">
             <div className="absolute inset-0 bg-[#00b0ff]/10 rounded-2xl blur-lg"></div>
-            <div className="relative rounded-2xl border border-[#00b0ff]/20 bg-black/70 p-6 shadow-lg shadow-[#00b0ff]/10 backdrop-blur-sm">
-              <h3 className="mb-4 text-center text-lg font-semibold text-white font-['Orbitron']">
+            <div className="relative rounded-xl sm:rounded-2xl border border-[#00b0ff]/20 bg-black/70 p-4 sm:p-6 shadow-lg shadow-[#00b0ff]/10 backdrop-blur-sm">
+              <h3 className="mb-3 sm:mb-4 text-center text-base sm:text-lg font-semibold text-white font-['Orbitron']">
                 Know someone who would benefit from what we're building?
               </h3>
-              <p className="text-center text-blue-300">
+              <p className="text-center text-sm text-blue-300">
                 Invite <strong>3</strong> friends for early access and a chance to win gifts.
               </p>
               <div className="mt-4 flex justify-center">
@@ -466,7 +366,7 @@ const Colon = () => (
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0066ff] to-[#00b0ff] rounded-full blur-md opacity-50"></div>
                   <button 
                     onClick={() => setIsShareModalOpen(true)}
-                    className="relative rounded-full bg-gradient-to-r from-[#0066ff] to-[#00b0ff] px-6 py-3 font-semibold text-black shadow-lg shadow-blue-400/20 transition-all duration-300 hover:scale-105 hover:from-[#004cb3] hover:to-[#33ccff] hover:shadow-blue-400/40 flex items-center gap-2"
+                    className="relative rounded-full bg-gradient-to-r from-[#0066ff] to-[#00b0ff] px-5 sm:px-6 py-2 sm:py-3 font-semibold text-black shadow-lg shadow-blue-400/20 transition-all duration-300 hover:scale-105 hover:from-[#004cb3] hover:to-[#33ccff] hover:shadow-blue-400/40 flex items-center gap-2"
                   >
                     <Share2 size={18} />
                     Start Inviting
@@ -479,10 +379,9 @@ const Colon = () => (
       </main>
 
       {/* FOOTER */}
-      <footer className="relative z-10 mt-12 pb-6">
-        {/* Full-width white stripe */}
+      <footer className="relative z-10 mt-8 sm:mt-12 pb-4 sm:pb-6">
         <div className="relative w-full">
-          <div className="absolute inset-0 bg-white/10 "></div>
+          <div className="absolute inset-0 bg-white/10"></div>
           <div className="relative bg-white/5 border-t border-white/10 py-4">
             <div className="flex justify-center">
               <div className="text-center">
@@ -518,9 +417,9 @@ const Colon = () => (
       {showPrivacyModal && <PrivacyPolicyModal />}
 
       {/* Share Modal */}
-   {isShareModalOpen && (
+      {isShareModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-black/90 border border-[#00b0ff]/30 rounded-2xl p-6 w-full max-w-md shadow-2xl shadow-[#00b0ff]/20">
+          <div className="bg-black/90 border border-[#00b0ff]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 w-full max-w-sm sm:max-w-md shadow-2xl shadow-[#00b0ff]/20">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-semibold text-white font-['Orbitron']">Share Your Invite</h3>
               <button
@@ -591,5 +490,6 @@ const Colon = () => (
       )}
     </div>
   );
-}
+};
+
 export default CountdownPage;
